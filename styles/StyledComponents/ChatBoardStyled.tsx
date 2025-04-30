@@ -13,6 +13,7 @@ export const ChatMenuCard = styled(Stack)`
     left: 0;
     height: 100%;
     z-index: 1;
+    border: none;
   }
 
   &.open-chatmenu {
@@ -67,9 +68,17 @@ export const ChatContentBox = styled(Box)`
     width: 100%;
   }
 
+  @media (max-width: 599px) {
+    padding-bottom: 0;
+  }
+
   .chat-con-header {
     border-bottom: 1px solid ${({ theme }) => theme.palette.grey.A200};
     padding: 10px 20px;
+
+    @media (max-width: 599px) {
+      padding: 10px;
+    }
 
     .chat-header-stack {
       .backto-chatmenu {
@@ -85,6 +94,11 @@ export const ChatContentBox = styled(Box)`
       .chat-header-avtRight {
         width: calc(100% - 40px);
         padding-left: 10px;
+        line-height: 1.1;
+
+        @media (max-width: 599px) {
+          width: calc(100% - 30px);
+        }
 
         p {
           font-weight: 600;
@@ -123,8 +137,33 @@ export const ChatContentBox = styled(Box)`
   .msg-scroll {
     height: calc(100svh - 288px);
 
+    @media (max-width: 1199px) {
+      height: calc(100svh - 266px);
+    }
+
+    @media (max-width: 599px) {
+      height: calc(100svh - 249px);
+    }
+
     .msg-inner-gap {
       padding: 20px;
+
+      @media (max-width: 599px) {
+        padding: 20px 10px;
+      }
+
+      .msg-main {
+        &:not(:last-child) {
+          padding-bottom: 15px;
+        }
+      }
+    }
+
+    .scrollbar-track-y {
+      @media (max-width: 599px) {
+        background-color: transparent !important;
+        width: 2px !important;
+      }
     }
   }
 `;
@@ -135,9 +174,13 @@ export const ChatMessageStack = styled(Stack)`
   .msg-right-sec {
     width: calc(100% - 40px);
 
+    @media (max-width: 599px) {
+      width: calc(100% - 30px);
+    }
+
     .msg-content {
       width: 100%;
-      max-width: 90%;
+      max-width: 88%;
 
       .msg-info {
         .text-msg {
@@ -145,6 +188,23 @@ export const ChatMessageStack = styled(Stack)`
           border-radius: 10px;
           font-weight: 600;
           line-height: 1.2;
+
+          @media (max-width: 599px) {
+            padding: 8px;
+            border-radius: 5px;
+          }
+        }
+
+        .MuiIconButton-root {
+          @media (max-width: 599px) {
+            /* padding: 0; */
+          }
+
+          svg {
+            @media (max-width: 599px) {
+              font-size: 14px;
+            }
+          }
         }
       }
 
@@ -174,6 +234,11 @@ export const ChatBottomBox = styled(Stack)`
   background-color: ${({ theme }) => theme.palette.grey[50]};
   padding: 15px;
   border-radius: 15px;
+
+  @media (max-width: 599px) {
+    width: 100%;
+    border-radius: 0;
+  }
 
   .text-editor {
     width: 85%;

@@ -8,11 +8,16 @@ const ChatMessage: React.FC<IChatMessage> = ({ avatar, messages, type }) => {
     <ChatMessageStack
       direction={type === 'receiver' ? 'row' : 'row-reverse'}
       alignItems='flex-start'
+      className='msg-main'
     >
-      <Avatar src={avatar} alt='User avatar' sx={{ width: 40, height: 40 }} />
+      <Avatar
+        src={avatar}
+        alt='User avatar'
+        sx={{ width: { sm: 40, xs: 30 }, height: { sm: 40, xs: 30 } }}
+      />
       <Stack
         alignItems={type === 'receiver' ? 'flex-start' : 'flex-end'}
-        gap={'15px'}
+        gap={{ sm: '15px', xs: '10px' }}
         className='msg-right-sec'
       >
         {messages.map((msg, index) => (

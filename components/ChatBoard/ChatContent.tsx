@@ -28,21 +28,25 @@ const ChatContent = ({ selectedChat, onToggleChatMenu, className }: IChatContent
     <ChatContentBox className={className}>
       <Box className='chat-con-header'>
         <Grid2 container spacing={1}>
-          <Grid2 size={{ xs: 4 }}>
+          <Grid2 size={{ sm: 4, xs: 7 }}>
             <Stack direction='row' alignItems='center' className='chat-header-stack'>
               {isTabScreen && (
                 <IconButton onClick={onToggleChatMenu} className='backto-chatmenu' disableRipple>
                   <ArrowBackIosIcon />
                 </IconButton>
               )}
-              <Avatar src={avatar} alt='' sx={{ width: 40, height: 40 }} />
+              <Avatar
+                src={avatar}
+                alt=''
+                sx={{ width: { sm: 40, xs: 30 }, height: { sm: 40, xs: 30 } }}
+              />
               <Box className='chat-header-avtRight'>
                 <Typography variant='body1'>{name}</Typography>
                 <Typography variant='caption'>Active now</Typography>
               </Box>
             </Stack>
           </Grid2>
-          <Grid2 size={{ xs: 8 }}>
+          <Grid2 size={{ sm: 8, xs: 5 }}>
             <Stack
               direction='row'
               alignItems='center'
